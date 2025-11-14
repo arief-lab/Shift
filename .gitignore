@@ -23,6 +23,8 @@ build
 *.swo
 *~
 .DS_Store
+.marscode
+.qodo
 
 # Logs
 logs
