@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "../index.css";
-import Header from "@/components/header";
-import Providers from "@/components/providers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -15,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Shift",
-	description: "Shift",
+	title: "Shift - Fast & Reliable Delivery",
+	description: "Your trusted delivery partner for quick and efficient service",
 };
 
 export default function RootLayout({
@@ -29,12 +28,9 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<Providers>
-					<div className="grid h-svh grid-rows-[auto_1fr]">
-						<Header />
-						{children}
-					</div>
-				</Providers>
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);
